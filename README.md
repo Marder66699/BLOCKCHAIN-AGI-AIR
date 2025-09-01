@@ -1,4 +1,4 @@
-# 🚀 BLOCKCHAIN-AGI-SERVERLESS
+🚀 BLOCKCHAIN-AGI-SERVERLESS
 
 **Revolutionary Serverless AGI: Run Distilled GGUF AI Models on Blockchain Smart Contracts!**
 
