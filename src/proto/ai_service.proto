@@ -1,0 +1,225 @@
+// AI Service Protocol Buffers Definition
+// Author: Sir Charles Spikes
+// Contact: SirCharlesspikes5@gmail.com | Telegram: @SirGODSATANAGI
+
+syntax = "proto3";
+
+package ai.blockchain;
+
+option java_package = "com.sircharlesspikes.ai.blockchain.proto";
+option java_multiple_files = true;
+
+import "google/protobuf/timestamp.proto";
+
+// AI Model metadata
+message AIModelMetadata {
+  string model_id = 1;
+  string model_name = 2;
+  string model_type = 3;
+  string version = 4;
+  string ipfs_hash = 5;
+  int64 size_bytes = 6;
+  string creator_address = 7;
+  google.protobuf.Timestamp creation_time = 8;
+  map<string, string> parameters = 9;
+  repeated string supported_tasks = 10;
+}
+
+// AI Service Request
+message AIServiceRequest {
+  string request_id = 1;
+  string service_id = 2;
+  string requester_address = 3;
+  oneof input {
+    TextInput text_input = 4;
+    ImageInput image_input = 5;
+    AudioInput audio_input = 6;
+    CustomInput custom_input = 7;
+  }
+  map<string, string> parameters = 8;
+  google.protobuf.Timestamp timestamp = 9;
+}
+
+// AI Service Response
+message AIServiceResponse {
+  string request_id = 1;
+  string service_id = 2;
+  bool success = 3;
+  oneof output {
+    TextOutput text_output = 4;
+    ImageOutput image_output = 5;
+    AudioOutput audio_output = 6;
+    CustomOutput custom_output = 7;
+  }
+  string error_message = 8;
+  int64 processing_time_ms = 9;
+  google.protobuf.Timestamp timestamp = 10;
+}
+
+// Input types
+message TextInput {
+  string text = 1;
+  string language = 2;
+  int32 max_tokens = 3;
+}
+
+message ImageInput {
+  bytes image_data = 1;
+  string format = 2;
+  int32 width = 3;
+  int32 height = 4;
+}
+
+message AudioInput {
+  bytes audio_data = 1;
+  string format = 2;
+  int32 sample_rate = 3;
+  int32 duration_ms = 4;
+}
+
+message CustomInput {
+  bytes data = 1;
+  string content_type = 2;
+}
+
+// Output types
+message TextOutput {
+  string text = 1;
+  repeated float confidence_scores = 2;
+  map<string, string> metadata = 3;
+}
+
+message ImageOutput {
+  bytes image_data = 1;
+  string format = 2;
+  int32 width = 3;
+  int32 height = 4;
+  map<string, string> metadata = 5;
+}
+
+message AudioOutput {
+  bytes audio_data = 1;
+  string format = 2;
+  int32 sample_rate = 3;
+  int32 duration_ms = 4;
+}
+
+message CustomOutput {
+  bytes data = 1;
+  string content_type = 2;
+  map<string, string> metadata = 3;
+}
+
+// Blockchain transaction data
+message AITransaction {
+  string tx_hash = 1;
+  string from_address = 2;
+  string to_address = 3;
+  string service_id = 4;
+  string job_id = 5;
+  int64 amount = 6;
+  TransactionType type = 7;
+  google.protobuf.Timestamp timestamp = 8;
+  int64 block_number = 9;
+  TransactionStatus status = 10;
+}
+
+enum TransactionType {
+  UNKNOWN = 0;
+  SERVICE_PAYMENT = 1;
+  MODEL_PURCHASE = 2;
+  STAKING = 3;
+  UNSTAKING = 4;
+  REWARD_CLAIM = 5;
+}
+
+enum TransactionStatus {
+  PENDING = 0;
+  CONFIRMED = 1;
+  FAILED = 2;
+  CANCELLED = 3;
+}
+
+// Node communication messages
+message NodeMessage {
+  string node_id = 1;
+  oneof message {
+    ServiceAnnouncement service_announcement = 2;
+    JobRequest job_request = 3;
+    JobResponse job_response = 4;
+    HeartBeat heartbeat = 5;
+  }
+  bytes signature = 6;
+  google.protobuf.Timestamp timestamp = 7;
+}
+
+message ServiceAnnouncement {
+  repeated AIModelMetadata available_models = 1;
+  map<string, string> node_capabilities = 2;
+  string endpoint_url = 3;
+}
+
+message JobRequest {
+  string job_id = 1;
+  AIServiceRequest request = 2;
+  int64 payment_amount = 3;
+}
+
+message JobResponse {
+  string job_id = 1;
+  AIServiceResponse response = 2;
+  string tx_hash = 3;
+}
+
+message HeartBeat {
+  map<string, string> status = 1;
+  int64 uptime_seconds = 2;
+  repeated string active_services = 3;
+}
+
+// GRPC Service definitions
+service AIBlockchainService {
+  // Submit AI service request
+  rpc SubmitRequest(AIServiceRequest) returns (AIServiceResponse);
+  
+  // Stream AI service requests/responses
+  rpc StreamRequests(stream AIServiceRequest) returns (stream AIServiceResponse);
+  
+  // Get model metadata
+  rpc GetModelMetadata(ModelQuery) returns (AIModelMetadata);
+  
+  // List available models
+  rpc ListModels(ListModelsRequest) returns (ListModelsResponse);
+  
+  // Node communication
+  rpc SendNodeMessage(NodeMessage) returns (NodeMessageResponse);
+  
+  // Subscribe to node messages
+  rpc SubscribeToNodes(SubscribeRequest) returns (stream NodeMessage);
+}
+
+// Helper messages
+message ModelQuery {
+  string model_id = 1;
+}
+
+message ListModelsRequest {
+  string model_type = 1;
+  int32 page_size = 2;
+  string page_token = 3;
+}
+
+message ListModelsResponse {
+  repeated AIModelMetadata models = 1;
+  string next_page_token = 2;
+}
+
+message NodeMessageResponse {
+  bool success = 1;
+  string message = 2;
+}
+
+message SubscribeRequest {
+  repeated string node_ids = 1;
+  repeated string message_types = 2;
+}

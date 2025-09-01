@@ -1,0 +1,85 @@
+/**
+ * Build Configuration for AI on Blockchain
+ * Author: Sir Charles Spikes
+ * Contact: SirCharlesspikes5@gmail.com | Telegram: @SirGODSATANAGI
+ */
+
+plugins {
+    id 'java'
+    id 'application'
+    id 'com.hedera.pbj.pbj-compiler' version '0.7.0'
+}
+
+group = 'com.sircharlesspikes'
+version = '1.0.0'
+
+repositories {
+    mavenCentral()
+    maven { url 'https://us-maven.pkg.dev/swirlds-registry/maven-hashgraph-releases' }
+}
+
+dependencies {
+    // PBJ Runtime
+    implementation 'com.hedera.pbj:pbj-runtime:0.7.0'
+    
+    // PBJ GRPC Support
+    implementation 'com.hedera.pbj:pbj-grpc-helidon:0.7.0'
+    implementation 'com.hedera.pbj:pbj-grpc-helidon-config:0.7.0'
+    implementation 'com.hedera.pbj:pbj-grpc-client-helidon:0.7.0'
+    
+    // Helidon
+    implementation 'io.helidon.webserver:helidon-webserver:4.0.1'
+    implementation 'io.helidon.webserver:helidon-webserver-grpc:4.0.1'
+    
+    // Ethereum/Web3
+    implementation 'org.web3j:core:4.10.3'
+    
+    // Logging
+    implementation 'org.slf4j:slf4j-api:2.0.9'
+    implementation 'ch.qos.logback:logback-classic:1.4.11'
+    
+    // Testing
+    testImplementation 'org.junit.jupiter:junit-jupiter:5.10.0'
+    testImplementation 'org.mockito:mockito-core:5.5.0'
+}
+
+// PBJ Configuration
+pbj {
+    protobufVersion = '3.24.0'
+    srcDir = file('src/proto')
+    destDir = file('src/main/java')
+}
+
+java {
+    sourceCompatibility = JavaVersion.VERSION_17
+    targetCompatibility = JavaVersion.VERSION_17
+}
+
+application {
+    mainClass = 'com.sircharlesspikes.ai.blockchain.AIBlockchainNode'
+}
+
+test {
+    useJUnitPlatform()
+}
+
+jar {
+    manifest {
+        attributes(
+            'Implementation-Title': 'AI on Blockchain',
+            'Implementation-Version': version,
+            'Main-Class': 'com.sircharlesspikes.ai.blockchain.AIBlockchainNode',
+            'Author': 'Sir Charles Spikes',
+            'Contact': 'SirCharlesspikes5@gmail.com',
+            'Telegram': '@SirGODSATANAGI'
+        )
+    }
+}
+
+task generateProto {
+    dependsOn 'generatePbj'
+}
+
+build {
+    dependsOn generateProto
+}
