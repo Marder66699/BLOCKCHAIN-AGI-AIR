@@ -44,7 +44,7 @@ Forget everything you know about AI infrastructure. This system represents the *
          ▼                        ▼                        ▼
 ┌─────────────────┐    ┌─────────────────┐    ┌─────────────────┐
 │   IPFS Storage   │────│BC Offload Server│───│   GGUF Model    │
-│ (Distilled AI)   │    │Hedera Hashgraph │    │   (AI Brain)    │
+│ (Distilled AI)   │    │Hedera BlockChain│    │   (AI Brain)    │
 │                 │    │                 │    │                 │
 │ • Gemma 270M     │    │ • Event Listen  │    │ • Q4_0 Quant   │
 │ • Llama 7B       │    │ • Download      │    │ • llama.cpp    │
