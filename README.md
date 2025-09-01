@@ -115,7 +115,7 @@ contract AIBrainOnChain {
 **Current Models Available:**
 | Model | IPFS Hash | Size | Performance |
 |-------|-----------|------|-------------|
-| Gemma 3 270M Q4_0 | `QmXT2xkFnG7FP7NTfmDfDFcQLSfCJ3xfPnjCg76gFnq1Hr` | 230MB | 25 tokens/sec |
+| Gemma 3 270M Q4_0 | `QmXT2xkFnG7FP7NTfmDfDFcQLSfCJ3xfPnjCg76gnq1Hr` | 230MB | 25 tokens/sec |
 | Llama 7B Q4_0 | Coming Soon | ~4GB | 20 tokens/sec |
 | Mistral 7B Q4_0 | Coming Soon | ~4GB | 22 tokens/sec |
 
